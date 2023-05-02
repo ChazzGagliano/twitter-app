@@ -1,6 +1,25 @@
 class WoofsController < ApplicationController
   def index
     @woofs = Woof.all
-    render json: {message: "hello"}
+  
+  end
+  def show
+    @woof = Woof.find_by(id: params[:id])
+    render :show
+  end
+  def new
+    @woof = Woof.new
+    
+  end
+
+  def create
+    @woof = Woof.new(
+      user_id: params[:woof][:user_id],
+      text: params[:woof][:text],
+      image: params[:woof][:image]
+    )
+    @woof.save!
+    redirect_to "/woofs/#{@woof.id}"
+   
   end
 end
