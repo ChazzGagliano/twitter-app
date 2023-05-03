@@ -1,4 +1,5 @@
 class WoofsController < ApplicationController
+ 
   def index
     @woofs = Woof.all
   
@@ -14,12 +15,11 @@ class WoofsController < ApplicationController
 
   def create
     @woof = Woof.new(
-      user_id: params[:woof][:user_id],
+      user_id = current_user.id,
       text: params[:woof][:text],
       image: params[:woof][:image]
     )
     @woof.save!
     redirect_to "/woofs/#{@woof.id}"
-   
   end
 end

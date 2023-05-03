@@ -1,7 +1,7 @@
-<h1>For You</h1>
+<h1>For you</h1>
 <% @woofs.each do |woof| %>
   <p><%= woof.user_id %></p>
   <p> <%= woof.text %></p>
-  <p> <%= woof.image %></p>
+  <p> <img src="<%= woof.image%>" %></p>
 <% end %>
 
