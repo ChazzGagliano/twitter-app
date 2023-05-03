@@ -15,11 +15,11 @@ class WoofsController < ApplicationController
 
   def create
     @woof = Woof.new(
-      user_id = current_user.id,
+      user_id: current_user.id,
       text: params[:woof][:text],
       image: params[:woof][:image]
     )
-    @woof.save!
-    redirect_to "/woofs/#{@woof.id}"
+    @woof.save
+    redirect_to "/woofs"
   end
 end

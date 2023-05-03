@@ -1,14 +1,12 @@
-<h1>Profile:</h1>
-
-
-<p>email: <%= @user.email %></p>
+<h1>Woofs:</h1>
 
 
 
 
-<% @user.woofs.each do |woof|%>
-  
-  
+
+
+
+<% @user.woof.each do |woof|%>
   <p><%= woof.text %></p>
   <p><%= woof.image %></p>
 <%end%>

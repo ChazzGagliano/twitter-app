@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<% if current_user == nil %>
-   <% redirect_to "/login" %>
-   else
-    <%=current_user.name %>
-    <img src="<%= current_user.image%>" class ="logo">
-    <% end %>
-  
+<%=current_user && current_user.name %>
+
+<img src="<%= current_user && current_user.image%>" class ="logo">
+<%= current_user && current_user.email %> 
+<h ref
+<h4><a href="/woofs"> General feed </a></h4>
+
+<a href="/logout"> Logout </a>
+<a href="/signup"> Signup</a>
+<a href="/login"> login</a>
 <html>
   <head>
     <title>Woofer</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+  
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
@@ -24,8 +27,8 @@
 
 <style>
 .logo {
-width: 100px;
-height: 100px;
+width: 50px;
+height: 50px;
 border-radius: 50%;
 }
 </style>
