@@ -1,4 +1,4 @@
-<h1>For you</h1>
+<h2>For you</h2>
 <% @woofs.each do |woof| %>
   <p><%= woof.user.name %></p>
   <img src="<%= woof.user.image %>"class ="logo">
@@ -7,12 +7,19 @@
 <% end %>
 
 
-<h4><a href="/woofs/new"> Compose </a></h4>
+<h4><a href="/woofs/new"> Compose </a></h4> 
 <style>
 .logo {
 width: 50px;
 height: 50px;
 border-radius: 50%;
 }
-</style>
 
+
+
+<style>
+  .material-icons {
+    color: #1da1f2;
+    font-size: 22px;
+  }
+</style>
