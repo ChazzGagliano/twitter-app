@@ -1,22 +1,64 @@
-<h1>Write a woof</h1>
-<form method="post" action="/woofs">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  
 
 
-  <div>
-  <label>text </label>
-  <input type="text" name="woof[text]">
+<div class="tweet-container">
+  <form method="post" action="/woofs">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <label for="woof_text">Write Something...</label>
+    <input type="text" name="woof[text]" id="woof_text">
+
+    <label for="woof_image">Add an image (optional)</label>
+    <input type="text" name="woof[image]" id="woof_image">
+
+    <input type="submit" value="whoof">
+  </form>
 </div>
 
+<style>
+ 
 
-<div>
-<label>image </label>
-<input type="text" name="woof[image]">
-</div>
+  .tweet-container h1 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color: #1da1f2;
+  }
 
-<div class="flex justify-end px-6 -mt-20">
-<input type="submit" value="Create woof">
-</div>
+  .tweet-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 10px;
+  }
 
-</form>
+  .tweet-container label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #1da1f2;
+  }
+
+  .tweet-container input[type="text"] {
+    border: 1px solid #ccd6dd;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .tweet-container input[type="submit"] {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .tweet-container input[type="submit"]:hover {
+    background-color: #0c8de4;
+  }
+</style>

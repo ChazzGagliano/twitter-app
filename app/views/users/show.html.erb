@@ -1,14 +1,25 @@
-<h1>Woofs:</h1>
+<div class="woof">
+<link rel="stylesheet" href="styles.css">
+<%= @user.email %>
 
+<form method="post" action="/users/<%= @user.id %>/relationships" class="button_to">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input value="follow" type="submit" />
+</form>
 
+<form method="post" action="/relationships/<%= @relationship.id %>" class="button_to">
+<input type="hidden" name="_method" value="DELETE">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input value="unfollow" type="submit" />
+</form>
 
-
-
-
-
-<% @user.woof.each do |woof|%>
+<p>Followers: <%=@user.followers.count %></p>
+<p>Following: <%=@user.following.count %></p>
+<h4>Woofs:</h4>
+<% @user.woofs.each do |woof|%>
   <p><%= woof.text %></p>
   <p><%= woof.image %></p>
 <%end%>
+<h4><a href="/woofs/new">Write Something</a></h4>
+</div>
 
-<h4><a href="/woofs/new">Make a Woof</a></h4>

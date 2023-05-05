@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_02_204532) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_05_164744) do
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
-    t.integer "leader_id"
+    t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,25 +1,87 @@
-<h2>For you</h2>
-<% @woofs.each do |woof| %>
-  <p><%= woof.user.name %></p>
-  <img src="<%= woof.user.image %>"class ="logo">
-  <p> <%= woof.text %></p>
-  <p> <img src="<%= woof.image%>" %></p>
-<% end %>
 
+  <% @woofs.each do |woof| %>
+    <div class="woof">
+      <img src="<%= woof.user.image %>" class="avatar">
+      <div class="woof-content">
+        <div class="woof-header">
+          <h4 class="username"><%= woof.user.name %></h4>
+        </div>
+        <div class="woof-text">
+          <%= woof.text %>
+        </div>
+        <% if woof.image.present? %>
+          <img src="<%= woof.image %>" class="woof-image">
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 
-<h4><a href="/woofs/new"> Compose </a></h4> 
+  <h4><a href="/woofs/new">Write Something</a></h4>
+
 <style>
-.logo {
-width: 50px;
-height: 50px;
-border-radius: 50%;
+
+
+.woof {
+  display: flex;
+  gap: 10px;
 }
 
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
 
+.woof-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
 
-<style>
-  .material-icons {
-    color: #1da1f2;
-    font-size: 22px;
-  }
+.woof-header {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.username {
+  font-weight: bold;
+  margin: 0;
+}
+
+.handle {
+  color: #657786;
+  font-size: 14px;
+}
+
+.timestamp {
+  color: #657786;
+  font-size: 14px;
+}
+
+.woof-text {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.woof-image {
+  max-width: 100%;
+  margin-top: 10px;
+}
+
+h4, h5 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #1da1f2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 </style>
